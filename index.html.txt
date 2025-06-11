@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoLum - Iluminación IoT</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
+    header { background: #1c1c1c; color: #fff; padding: 20px 0; text-align: center; }
+    nav { background: #333; text-align: center; }
+    nav a { color: white; padding: 14px 20px; text-decoration: none; display: inline-block; }
+    nav a:hover { background: #575757; }
+    .hero { padding: 50px; text-align: center; background: #e0f7fa; }
+    .section { padding: 40px; max-width: 1100px; margin: auto; background: white; margin-top: 20px; }
+    .footer { text-align: center; background: #1c1c1c; color: #fff; padding: 20px; margin-top: 40px; }
+    .btn { background: #00796b; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; }
+    .btn:hover { background: #004d40; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>EcoLum</h1>
+    <p>Iluminando el futuro con tecnología sostenible</p>
+  </header>
+
+  <nav>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#productos">Productos</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <section class="hero">
+    <h2>Soluciones de Iluminación Inteligente para PYMES</h2>
+    <p>Optimizamos tu consumo energético con tecnología IoT</p>
+    <a href="#productos" class="btn">Ver productos</a>
+  </section>
+
+  <section class="section" id="nosotros">
+    <h2>Sobre EcoLum</h2>
+    <p>EcoLum es una empresa boliviana dedicada a proveer soluciones de iluminación con tecnología IoT para pequeñas y medianas empresas. Nuestro objetivo es ayudarte a reducir costos energéticos y hacer tu empresa más sostenible.</p>
+  </section>
+
+  <section class="section" id="productos">
+    <h2>Productos</h2>
+    <ul>
+      <li>Kit IoT de Iluminación Inteligente - Control manual y automático</li>
+      <li>Sensor de Movimiento PIR</li>
+      <li>App de gestión desde celular o PC</li>
+    </ul>
+  </section>
+
+  <section class="section" id="servicios">
+    <h2>Servicios</h2>
+    <ul>
+      <li>Instalación personalizada de kits</li>
+      <li>Soporte técnico y mantenimiento</li>
+      <li>Capacitación para el uso del sistema</li>
+    </ul>
+  </section>
+
+  <section class="section" id="contacto">
+    <h2>Contacto</h2>
+    <p>Dirección: Calle Uruguay 0376, entre 25 de Mayo y Esteban Arze - Cochabamba</p>
+    <p>Email: contacto@ecolum.bo</p>
+    <p>Teléfono: +591 70312345</p>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 EcoLum - Todos los derechos reservados</p>
+  </footer>
+
+</body>
+</html>
