@@ -4,97 +4,76 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tienda EcoLum</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
-    header { background: #1c1c1c; color: #fff; padding: 20px 0; text-align: center; }
-    nav { background: #333; text-align: center; }
-    nav a { color: white; padding: 14px 20px; text-decoration: none; display: inline-block; }
-    nav a:hover { background: #575757; }
-    .hero { padding: 50px; text-align: center; background: #e0f7fa; }
-    .section { padding: 40px; max-width: 1100px; margin: auto; background: white; margin-top: 20px; }
-    .footer { text-align: center; background: #1c1c1c; color: #fff; padding: 20px; margin-top: 40px; }
-    .btn { background: #00796b; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; }
-    .btn:hover { background: #004d40; }
-    .product { border: 1px solid #ccc; border-radius: 10px; padding: 20px; margin-bottom: 20px; text-align: center; }
-    .cart { background: #fafafa; border: 1px solid #ccc; padding: 10px; margin-top: 20px; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background-color: #0f1117; color: white; line-height: 1.6; }
+    header { background: linear-gradient(to right, #1f2430, #2a2f3b); padding: 20px; text-align: center; }
+    header h1 { font-size: 2rem; }
+    nav { display: flex; justify-content: center; gap: 20px; background-color: #1a1d24; padding: 15px 0; }
+    nav a { color: #fff; text-decoration: none; font-weight: 600; }
+    nav a:hover { color: #00ffc3; }
+    .hero { text-align: center; padding: 60px 20px; background: #1a1d24; }
+    .hero h2 { font-size: 2.5rem; margin-bottom: 10px; }
+    .hero p { color: #bbb; }
+    .container { max-width: 1200px; margin: auto; padding: 40px 20px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+    .product { background: #1f2430; border-radius: 12px; padding: 20px; text-align: center; transition: transform 0.3s; }
+    .product:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0, 255, 195, 0.2); }
+    .product h3 { margin-bottom: 10px; font-size: 1.2rem; }
+    .product p { color: #bbb; margin-bottom: 10px; }
+    .price { font-size: 1.3rem; color: #00ffc3; font-weight: bold; }
+    .btn { background: #00ffc3; color: #000; border: none; padding: 10px 20px; font-weight: 600; border-radius: 8px; cursor: pointer; }
+    .btn:hover { background: #00d0a0; }
+    footer { background: #1a1d24; text-align: center; padding: 20px; color: #666; margin-top: 40px; font-size: 0.9rem; }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>EcoLum</h1>
-    <p>Iluminando el futuro con tecnología sostenible</p>
+    <h1>EcoLum Store</h1>
+    <p>Tu tienda de iluminación IoT sostenible</p>
   </header>
 
   <nav>
     <a href="#productos">Productos</a>
-    <a href="#carrito">Carrito</a>
+    <a href="#soporte">Soporte</a>
     <a href="#contacto">Contacto</a>
   </nav>
 
   <section class="hero">
-    <h2>Tienda IoT de Iluminación Inteligente</h2>
-    <p>Compra productos inteligentes y sostenibles para tu empresa</p>
+    <h2>Bienvenido a EcoLum</h2>
+    <p>Adquiere nuestros kits inteligentes para ahorrar energía en tu negocio</p>
   </section>
 
-  <section class="section" id="productos">
-    <h2>Productos Disponibles</h2>
-    <div class="product">
-      <h3>Kit IoT Básico</h3>
-      <p>Sistema con sensores PIR y control móvil</p>
-      <p><strong>Bs. 150</strong></p>
-      <button onclick="addToCart('Kit IoT Básico', 150)">Agregar al carrito</button>
+  <section class="container" id="productos">
+    <h2 style="margin-bottom: 30px; text-align: center;">Productos Destacados</h2>
+    <div class="grid">
+      <div class="product">
+        <h3>Kit IoT Básico</h3>
+        <p>Control inteligente + sensor PIR</p>
+        <p class="price">Bs. 150</p>
+        <button class="btn">Agregar al carrito</button>
+      </div>
+      <div class="product">
+        <h3>Kit Avanzado</h3>
+        <p>Incluye sensor + app móvil + soporte</p>
+        <p class="price">Bs. 230</p>
+        <button class="btn">Agregar al carrito</button>
+      </div>
+      <div class="product">
+        <h3>Sensor PIR Repuesto</h3>
+        <p>Compatible con todos los kits</p>
+        <p class="price">Bs. 40</p>
+        <button class="btn">Agregar al carrito</button>
+      </div>
     </div>
-    <div class="product">
-      <h3>Sensor PIR Repuesto</h3>
-      <p>Sensor de movimiento adicional</p>
-      <p><strong>Bs. 40</strong></p>
-      <button onclick="addToCart('Sensor PIR Repuesto', 40)">Agregar al carrito</button>
-    </div>
   </section>
 
-  <section class="section" id="carrito">
-    <h2>Carrito de Compras</h2>
-    <div id="cart" class="cart">
-      <p>Tu carrito está vacío.</p>
-    </div>
-  </section>
-
-  <section class="section" id="contacto">
-    <h2>Contacto</h2>
-    <p>Dirección: Calle Uruguay 0376, Cochabamba</p>
-    <p>Email: contacto@ecolum.bo</p>
-    <p>WhatsApp: +591 70312345</p>
-  </section>
-
-  <footer class="footer">
-    <p>&copy; 2025 EcoLum - Todos los derechos reservados</p>
+  <footer>
+    &copy; 2025 EcoLum. Todos los derechos reservados.
   </footer>
-
-  <script>
-    const cart = [];
-    function addToCart(product, price) {
-      cart.push({ product, price });
-      displayCart();
-    }
-
-    function displayCart() {
-      const cartDiv = document.getElementById('cart');
-      if (cart.length === 0) {
-        cartDiv.innerHTML = '<p>Tu carrito está vacío.</p>';
-        return;
-      }
-      let html = '<ul>';
-      let total = 0;
-      cart.forEach(item => {
-        html += `<li>${item.product} - Bs. ${item.price}</li>`;
-        total += item.price;
-      });
-      html += `</ul><p><strong>Total: Bs. ${total}</strong></p>`;
-      html += `<button onclick="alert('Gracias por tu compra. Nos contactaremos por WhatsApp.')">Finalizar compra</button>`;
-      cartDiv.innerHTML = html;
-    }
-  </script>
 
 </body>
 </html>
+
