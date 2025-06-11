@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EcoLum - Iluminación IoT</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda EcoLum</title>
   <style>
     body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
     header { background: #1c1c1c; color: #fff; padding: 20px 0; text-align: center; }
@@ -15,6 +15,8 @@
     .footer { text-align: center; background: #1c1c1c; color: #fff; padding: 20px; margin-top: 40px; }
     .btn { background: #00796b; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; }
     .btn:hover { background: #004d40; }
+    .product { border: 1px solid #ccc; border-radius: 10px; padding: 20px; margin-bottom: 20px; text-align: center; }
+    .cart { background: #fafafa; border: 1px solid #ccc; padding: 10px; margin-top: 20px; }
   </style>
 </head>
 <body>
@@ -25,51 +27,74 @@
   </header>
 
   <nav>
-    <a href="#nosotros">Nosotros</a>
     <a href="#productos">Productos</a>
-    <a href="#servicios">Servicios</a>
+    <a href="#carrito">Carrito</a>
     <a href="#contacto">Contacto</a>
   </nav>
 
   <section class="hero">
-    <h2>Soluciones de Iluminación Inteligente para PYMES</h2>
-    <p>Optimizamos tu consumo energético con tecnología IoT</p>
-    <a href="#productos" class="btn">Ver productos</a>
-  </section>
-
-  <section class="section" id="nosotros">
-    <h2>Sobre EcoLum</h2>
-    <p>EcoLum es una empresa boliviana dedicada a proveer soluciones de iluminación con tecnología IoT para pequeñas y medianas empresas. Nuestro objetivo es ayudarte a reducir costos energéticos y hacer tu empresa más sostenible.</p>
+    <h2>Tienda IoT de Iluminación Inteligente</h2>
+    <p>Compra productos inteligentes y sostenibles para tu empresa</p>
   </section>
 
   <section class="section" id="productos">
-    <h2>Productos</h2>
-    <ul>
-      <li>Kit IoT de Iluminación Inteligente - Control manual y automático</li>
-      <li>Sensor de Movimiento PIR</li>
-      <li>App de gestión desde celular o PC</li>
-    </ul>
+    <h2>Productos Disponibles</h2>
+    <div class="product">
+      <h3>Kit IoT Básico</h3>
+      <p>Sistema con sensores PIR y control móvil</p>
+      <p><strong>Bs. 150</strong></p>
+      <button onclick="addToCart('Kit IoT Básico', 150)">Agregar al carrito</button>
+    </div>
+    <div class="product">
+      <h3>Sensor PIR Repuesto</h3>
+      <p>Sensor de movimiento adicional</p>
+      <p><strong>Bs. 40</strong></p>
+      <button onclick="addToCart('Sensor PIR Repuesto', 40)">Agregar al carrito</button>
+    </div>
   </section>
 
-  <section class="section" id="servicios">
-    <h2>Servicios</h2>
-    <ul>
-      <li>Instalación personalizada de kits</li>
-      <li>Soporte técnico y mantenimiento</li>
-      <li>Capacitación para el uso del sistema</li>
-    </ul>
+  <section class="section" id="carrito">
+    <h2>Carrito de Compras</h2>
+    <div id="cart" class="cart">
+      <p>Tu carrito está vacío.</p>
+    </div>
   </section>
 
   <section class="section" id="contacto">
     <h2>Contacto</h2>
-    <p>Dirección: Calle Uruguay 0376, entre 25 de Mayo y Esteban Arze - Cochabamba</p>
+    <p>Dirección: Calle Uruguay 0376, Cochabamba</p>
     <p>Email: contacto@ecolum.bo</p>
-    <p>Teléfono: +591 70312345</p>
+    <p>WhatsApp: +591 70312345</p>
   </section>
 
   <footer class="footer">
     <p>&copy; 2025 EcoLum - Todos los derechos reservados</p>
   </footer>
+
+  <script>
+    const cart = [];
+    function addToCart(product, price) {
+      cart.push({ product, price });
+      displayCart();
+    }
+
+    function displayCart() {
+      const cartDiv = document.getElementById('cart');
+      if (cart.length === 0) {
+        cartDiv.innerHTML = '<p>Tu carrito está vacío.</p>';
+        return;
+      }
+      let html = '<ul>';
+      let total = 0;
+      cart.forEach(item => {
+        html += `<li>${item.product} - Bs. ${item.price}</li>`;
+        total += item.price;
+      });
+      html += `</ul><p><strong>Total: Bs. ${total}</strong></p>`;
+      html += `<button onclick="alert('Gracias por tu compra. Nos contactaremos por WhatsApp.')">Finalizar compra</button>`;
+      cartDiv.innerHTML = html;
+    }
+  </script>
 
 </body>
 </html>
