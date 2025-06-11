@@ -20,10 +20,11 @@
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
     .product { background: #1f2430; border-radius: 12px; padding: 20px; text-align: center; transition: transform 0.3s; }
     .product:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0, 255, 195, 0.2); }
+    .product img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
     .product h3 { margin-bottom: 10px; font-size: 1.2rem; }
     .product p { color: #bbb; margin-bottom: 10px; }
     .price { font-size: 1.3rem; color: #00ffc3; font-weight: bold; }
-    .btn { background: #00ffc3; color: #000; border: none; padding: 10px 20px; font-weight: 600; border-radius: 8px; cursor: pointer; }
+    .btn { background: #00ffc3; color: #000; border: none; padding: 10px 20px; font-weight: 600; border-radius: 8px; cursor: pointer; text-decoration: none; display: inline-block; margin-top: 10px; }
     .btn:hover { background: #00d0a0; }
     footer { background: #1a1d24; text-align: center; padding: 20px; color: #666; margin-top: 40px; font-size: 0.9rem; }
   </style>
@@ -50,22 +51,25 @@
     <h2 style="margin-bottom: 30px; text-align: center;">Productos Destacados</h2>
     <div class="grid">
       <div class="product">
+        <img src="https://via.placeholder.com/300x200?text=Kit+Basico" alt="Kit IoT Básico">
         <h3>Kit IoT Básico</h3>
         <p>Control inteligente + sensor PIR</p>
         <p class="price">Bs. 150</p>
-        <button class="btn">Agregar al carrito</button>
+        <a class="btn" href="producto1.html" target="_blank">Ver más</a>
       </div>
       <div class="product">
+        <img src="https://via.placeholder.com/300x200?text=Kit+Avanzado" alt="Kit Avanzado">
         <h3>Kit Avanzado</h3>
         <p>Incluye sensor + app móvil + soporte</p>
         <p class="price">Bs. 230</p>
-        <button class="btn">Agregar al carrito</button>
+        <a class="btn" href="producto2.html" target="_blank">Ver más</a>
       </div>
       <div class="product">
+        <img src="https://via.placeholder.com/300x200?text=Sensor+PIR" alt="Sensor PIR Repuesto">
         <h3>Sensor PIR Repuesto</h3>
         <p>Compatible con todos los kits</p>
         <p class="price">Bs. 40</p>
-        <button class="btn">Agregar al carrito</button>
+        <a class="btn" href="producto3.html" target="_blank">Ver más</a>
       </div>
     </div>
   </section>
