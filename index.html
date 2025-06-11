@@ -3,81 +3,114 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tienda EcoLum</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <title>EcoLum Tienda Online</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', sans-serif; background-color: #0f1117; color: white; line-height: 1.6; }
-    header { background: linear-gradient(to right, #1f2430, #2a2f3b); padding: 20px; text-align: center; }
-    header h1 { font-size: 2rem; }
-    nav { display: flex; justify-content: center; gap: 20px; background-color: #1a1d24; padding: 15px 0; }
-    nav a { color: #fff; text-decoration: none; font-weight: 600; }
-    nav a:hover { color: #00ffc3; }
-    .hero { text-align: center; padding: 60px 20px; background: #1a1d24; }
-    .hero h2 { font-size: 2.5rem; margin-bottom: 10px; }
-    .hero p { color: #bbb; }
-    .container { max-width: 1200px; margin: auto; padding: 40px 20px; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-    .product { background: #1f2430; border-radius: 12px; padding: 20px; text-align: center; transition: transform 0.3s; }
-    .product:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0, 255, 195, 0.2); }
-    .product img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
-    .product h3 { margin-bottom: 10px; font-size: 1.2rem; }
-    .product p { color: #bbb; margin-bottom: 10px; }
-    .price { font-size: 1.3rem; color: #00ffc3; font-weight: bold; }
-    .btn { background: #00ffc3; color: #000; border: none; padding: 10px 20px; font-weight: 600; border-radius: 8px; cursor: pointer; text-decoration: none; display: inline-block; margin-top: 10px; }
-    .btn:hover { background: #00d0a0; }
-    footer { background: #1a1d24; text-align: center; padding: 20px; color: #666; margin-top: 40px; font-size: 0.9rem; }
+    body { background-color: #121212; color: white; font-family: 'Segoe UI', sans-serif; }
+    .navbar { background-color: #1f1f1f; }
+    .navbar-brand, .nav-link { color: #fff; }
+    .nav-link:hover { color: #00ffc3; }
+    .card { background-color: #1e1e1e; border: none; }
+    .card-title { color: #00ffc3; }
+    .btn-primary { background-color: #00ffc3; border: none; color: #000; }
+    .btn-primary:hover { background-color: #00d0a0; }
+    footer { background-color: #1f1f1f; padding: 20px; text-align: center; margin-top: 40px; color: #aaa; }
   </style>
 </head>
 <body>
-
-  <header>
-    <h1>EcoLum Store</h1>
-    <p>Tu tienda de iluminación IoT sostenible</p>
-  </header>
-
-  <nav>
-    <a href="#productos">Productos</a>
-    <a href="#soporte">Soporte</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
-
-  <section class="hero">
-    <h2>Bienvenido a EcoLum</h2>
-    <p>Adquiere nuestros kits inteligentes para ahorrar energía en tu negocio</p>
-  </section>
-
-  <section class="container" id="productos">
-    <h2 style="margin-bottom: 30px; text-align: center;">Productos Destacados</h2>
-    <div class="grid">
-      <div class="product">
-        <img src="https://via.placeholder.com/300x200?text=Kit+Basico" alt="Kit IoT Básico">
-        <h3>Kit IoT Básico</h3>
-        <p>Control inteligente + sensor PIR</p>
-        <p class="price">Bs. 150</p>
-        <a class="btn" href="producto1.html" target="_blank">Ver más</a>
+  <div id="app">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">EcoLum</a>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#productos">Productos</a></li>
+            <li class="nav-item"><a class="nav-link" href="#carrito">Carrito</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="product">
-        <img src="https://via.placeholder.com/300x200?text=Kit+Avanzado" alt="Kit Avanzado">
-        <h3>Kit Avanzado</h3>
-        <p>Incluye sensor + app móvil + soporte</p>
-        <p class="price">Bs. 230</p>
-        <a class="btn" href="producto2.html" target="_blank">Ver más</a>
+    </nav>
+
+    <div class="container mt-5">
+      <div class="text-center mb-4">
+        <h1>Bienvenido a EcoLum</h1>
+        <p>Tu tienda IoT de iluminación sostenible</p>
       </div>
-      <div class="product">
-        <img src="https://via.placeholder.com/300x200?text=Sensor+PIR" alt="Sensor PIR Repuesto">
-        <h3>Sensor PIR Repuesto</h3>
-        <p>Compatible con todos los kits</p>
-        <p class="price">Bs. 40</p>
-        <a class="btn" href="producto3.html" target="_blank">Ver más</a>
+
+      <div id="productos" class="row">
+        <div class="col-md-4 mb-4" v-for="(producto, index) in productos" :key="index">
+          <div class="card h-100">
+            <img :src="producto.imagen" class="card-img-top" alt="Producto">
+            <div class="card-body">
+              <h5 class="card-title">{{ producto.nombre }}</h5>
+              <p class="card-text">{{ producto.descripcion }}</p>
+              <p class="card-text fw-bold">Bs. {{ producto.precio }}</p>
+              <button class="btn btn-primary" @click="agregarAlCarrito(producto)">Agregar al carrito</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="carrito" class="mt-5">
+        <h3>Carrito de compras</h3>
+        <ul class="list-group mb-3" v-if="carrito.length">
+          <li class="list-group-item d-flex justify-content-between align-items-center" v-for="(item, i) in carrito" :key="i">
+            {{ item.nombre }} - Bs. {{ item.precio }}
+            <button class="btn btn-sm btn-danger" @click="removerDelCarrito(i)">Eliminar</button>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <strong>Total</strong>
+            <strong>Bs. {{ totalCarrito }}</strong>
+          </li>
+        </ul>
+        <p v-else>Tu carrito está vacío.</p>
+        <button v-if="carrito.length" class="btn btn-success mt-2" @click="pagar">Pagar con tarjeta</button>
+      </div>
+
+      <div id="contacto" class="mt-5">
+        <h3>Contacto</h3>
+        <p>Email: contacto@ecolum.bo</p>
+        <p>WhatsApp: +591 70312345</p>
       </div>
     </div>
-  </section>
 
-  <footer>
-    &copy; 2025 EcoLum. Todos los derechos reservados.
-  </footer>
+    <footer>
+      &copy; 2025 EcoLum. Todos los derechos reservados.
+    </footer>
+  </div>
 
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        productos: [
+          { nombre: 'Kit IoT Básico', descripcion: 'Control + sensor PIR', precio: 150, imagen: 'https://via.placeholder.com/400x250?text=Kit+IoT+Basico' },
+          { nombre: 'Kit IoT Avanzado', descripcion: 'Incluye sensor + app', precio: 230, imagen: 'https://via.placeholder.com/400x250?text=Kit+Avanzado' },
+          { nombre: 'Sensor PIR', descripcion: 'Sensor compatible', precio: 40, imagen: 'https://via.placeholder.com/400x250?text=Sensor+PIR' }
+        ],
+        carrito: []
+      },
+      computed: {
+        totalCarrito() {
+          return this.carrito.reduce((sum, p) => sum + p.precio, 0);
+        }
+      },
+      methods: {
+        agregarAlCarrito(producto) {
+          this.carrito.push(producto);
+        },
+        removerDelCarrito(index) {
+          this.carrito.splice(index, 1);
+        },
+        pagar() {
+          alert('Redireccionando a pasarela de pago segura... (simulado)');
+        }
+      }
+    });
+  </script>
 </body>
 </html>
-
